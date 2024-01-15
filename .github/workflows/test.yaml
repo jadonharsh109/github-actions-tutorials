@@ -1,0 +1,26 @@
+name: NodeJS Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: shell
+        working-directory: ./web
+    steps:
+      - name: "repo checkout"
+        uses: actions/checkout@v2
+
+      - name: "install package"
+        run: npm install
+
+      - name: "unit test"
+        run: npm run test
