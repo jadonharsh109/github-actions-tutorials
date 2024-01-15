@@ -24,3 +24,19 @@ jobs:
 
       - name: "unit test"
         run: npm run test
+
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./web
+    steps:
+      - name: "repo checkout"
+        uses: actions/checkout@v2
+
+      - name: "install package"
+        run: npm install
+
+      - name: "run lint test"
+        run: npx standard -v
