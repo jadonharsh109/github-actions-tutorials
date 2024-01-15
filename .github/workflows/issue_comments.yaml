@@ -23,7 +23,6 @@ jobs:
           body: |
             Thanks for creating an issue
             - We will be checking your issue soon as possible.
-            - Auto Generated from GitHub Actions
-          reactions: '+1'
+            - Auto Generated from GitHub Actions.
       
         
