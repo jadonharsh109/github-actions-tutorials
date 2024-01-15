@@ -21,11 +21,9 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Thanks for creating an issue.
+            Thanks for creating an issue
             - We will be checking your issue soon as possible.
             - Auto Generated from GitHub Actions
-  
-            [1]: https://github.com/peter-evans/create-or-update-comment
           reactions: '+1'
       
         
