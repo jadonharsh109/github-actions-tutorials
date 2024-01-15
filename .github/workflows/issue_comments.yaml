@@ -1,0 +1,11 @@
+on: 
+  issues:
+    types: [opened]
+
+jobs:
+  action-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: github context
+        run: ${{ github.event }}
+        shell: bash
