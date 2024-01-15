@@ -1,9 +1,9 @@
 on: 
-  # issues:
-  #   types: [opened]
-  push:
-    branches: 
-      - main
+  issues:
+    types: [opened]
+  # push:
+  #   branches: 
+  #     - main
 
 jobs:
   action-comment:
@@ -12,3 +12,20 @@ jobs:
       - name: github context
         run: echo '${{ toJSON(github.event) }}' | jq
         shell: bash
+
+  comment-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Thanks for creating an issue.
+            - We will be checking your issue soon as possible.
+            - Auto Generated from GitHub Actions
+  
+            [1]: https://github.com/peter-evans/create-or-update-comment
+          reactions: '+1'
+      
+        
