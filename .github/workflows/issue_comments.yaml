@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: github context
-        run: echo '${{ toJSON(github.event.issue.number) }}' | jq
+        run: echo '${{ toJSON(github.event) }}' | jq
         shell: bash
 
   comment-github-actions:
@@ -19,7 +19,7 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
         with:
-          issue-number: ${{ toJSON(github.event) }}
+          issue-number: ${{ github.event.issue.number }}
           body: |
             Thanks for creating an issue.
             - We will be checking your issue soon as possible.
