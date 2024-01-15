@@ -19,7 +19,7 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
         with:
-          issue-number: ${{ github.event.issue.number }}
+          issue-number: ${{ toJSON(github.event) }}
           body: |
             Thanks for creating an issue.
             - We will be checking your issue soon as possible.
